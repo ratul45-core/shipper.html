@@ -1,23 +1,3 @@
-# Robots.txt for Shipper Crow
-# https://shipper-html.vercel.app/robots.txt
-
 User-agent: *
 Allow: /
-Disallow: /admin
-Disallow: /login
-
-# Sitemap location
 Sitemap: https://shipper-html.vercel.app/sitemap.xml
-
-# Crawl delay for better performance
-Crawl-delay: 1
-
-# Googlebot specific
-User-agent: Googlebot
-Allow: /
-Crawl-delay: 0.5
-
-# Bingbot
-User-agent: Bingbot
-Allow: /
-Crawl-delay: 1
