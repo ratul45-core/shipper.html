@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Shipper Crow | Premium Affiliate Marketplace</title>
+    <meta name="description" content="Discover premium products from top brands at Shipper Crow. Shop the best deals on electronics, fashion, and more with exclusive affiliate offers.">
+    <meta name="keywords" content="shipper crow, affiliate marketing, dropshipping, premium products, online shopping, best deals">
+    <meta name="author" content="Shipper Crow">
+    
+    <!-- Font Awesome & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ============================================
+           CSS RESET & GLOBAL VARIABLES
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2c3e50;
+            --primary-dark: #1a2632;
+            --secondary: #e67e22;
+            --secondary-dark: #d35400;
+            --accent: #3498db;
+            --success: #27ae60;
+            --danger: #e74c3c;
+            --dark: #1e2a36;
+            --darker: #0f1724;
+            --light: #ffffff;
+            --gray-light: #f8fafc;
+            --gray: #94a3b8;
+            --gray-dark: #475569;
+            --gradient-primary: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            --gradient-secondary: linear-gradient(135deg, #e67e22 0%, #f39c12 100%);
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.04);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+            --shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
+            --shadow-xl: 0 16px 40px rgba(0,0,0,0.16);
+            --transition-fast: 0.2s ease;
+            --transition-normal: 0.3s ease;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--gray-light);
+            overflow-x: hidden;
+            color: var(--dark);
+        }
+
+        /* ============================================
+           CUSTOM SCROLLBAR
+           ============================================ */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--gray-light);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary);
+        }
+
+        /* ============================================
+           ANIMATIONS
+           ============================================ */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .animate-up {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        /* ============================================
+           NAVIGATION BAR
+           ============================================ */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255,255,255,0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
+            z-index: 1000;
+            padding: 0.8rem 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            padding: 0.5rem 2rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        /* ============================================
+           UNIQUE LOGO DESIGN
+           ============================================ */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--gradient-primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .logo-icon::before {
+            content: '';
+            position: absolute;
+            width: 150%;
+            height: 150%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.2), transparent);
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
+        }
+
+        .logo-icon i {
+            font-size: 1.6rem;
+            color: white;
+            z-index: 1;
+        }
+
+        .logo-text {
+            font-size: 1.6rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text span {
+            background: var(--gradient-secondary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* ============================================
+           NAVIGATION LINKS
+           ============================================ */
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: all var(--transition-fast);
+            position: relative;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-secondary);
+            transition: width 0.3s;
+            border-radius: 2px;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .admin-btn {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all var(--transition-fast);
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .admin-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* ============================================
+           HERO SECTION
+           ============================================ */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 2rem 4rem;
+            background: linear-gradient(135deg, rgba(44,62,80,0.05) 0%, rgba(52,152,219,0.05) 100%);
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: var(--gray-dark);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--gradient-secondary);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all var(--transition-fast);
+            box-shadow: var(--shadow-md);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* ============================================
+           PRODUCTS SECTION
+           ============================================ */
+        .products-section {
+            padding: 5rem 2rem;
+            background: var(--light);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--gradient-secondary);
+            border-radius: 3px;
+        }
+
+        .products-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-normal);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--gradient-secondary);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform var(--transition-normal);
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-title {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+            line-height: 1.4;
+        }
+
+        .product-price {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .product-old-price {
+            font-size: 0.9rem;
+            color: var(--gray);
+            text-decoration: line-through;
+            margin-left: 0.5rem;
+            font-weight: 400;
+        }
+
+        .buy-btn {
+            display: inline-block;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            width: 100%;
+            text-align: center;
+            transition: all var(--transition-fast);
+            border: none;
+            cursor: pointer;
+        }
+
+        .buy-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* ============================================
+           SOCIAL SECTION
+           ============================================ */
+        .social-section {
+            padding: 4rem 2rem;
+            background: var(--gray-light);
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .social-icon {
+            width: 55px;
+            height: 55px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            transition: all var(--transition-normal);
+            box-shadow: var(--shadow-sm);
+            text-decoration: none;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: var(--shadow-md);
+        }
+
+        .social-icon.amazon { color: #ff9900; }
+        .social-icon.shopify { color: #96bf48; }
+        .social-icon.tiktok { color: #000000; }
+        .social-icon.facebook { color: #1877f2; }
+        .social-icon.youtube { color: #ff0000; }
+        .social-icon.pinterest { color: #bd081c; }
+        .social-icon.instagram { color: #e4405f; }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column h4 {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-column a {
+            display: block;
+            color: var(--gray);
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            transition: color var(--transition-fast);
+        }
+
+        .footer-column a:hover {
+            color: var(--secondary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: var(--gray);
+            font-size: 0.85rem;
+        }
+
+        /* ============================================
+           ADMIN MODAL & DASHBOARD
+           ============================================ */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 24px;
+            max-width: 450px;
+            width: 90%;
+            padding: 2rem;
+            animation: fadeInUp 0.3s ease;
+        }
+
+        .login-form input {
+            width: 100%;
+            padding: 0.9rem;
+            margin: 0.5rem 0;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 0.95rem;
+        }
+
+        .login-form input:focus {
+            outline: none;
+            border-color: var(--secondary);
+        }
+
+        .login-form button {
+            width: 100%;
+            padding: 0.9rem;
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+
+        .admin-dashboard {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gray-light);
+            z-index: 2001;
+            overflow-y: auto;
+            padding: 2rem;
+        }
+
+        .admin-dashboard.active {
+            display: block;
+        }
+
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .product-form {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .product-form input, .product-form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin: 0.5rem 0;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+        }
+
+        .product-list {
+            background: white;
+            border-radius: 20px;
+            padding: 1.5rem;
+            overflow-x: auto;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .product-list table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .product-list th, .product-list td {
+            padding: 0.8rem;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .delete-btn {
+            background: var(--danger);
+            color: white;
+            border: none;
+            padding: 0.4rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .close-admin {
+            background: var(--gray-dark);
+            color: white;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        /* ============================================
+           RESPONSIVE DESIGN
+           ============================================ */
+        @media (max-width: 1024px) {
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 0.8rem 1rem;
+            }
+            .nav-links {
+                display: none;
+            }
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            .hero-content p {
+                font-size: 1rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 100px 1rem 3rem;
+            }
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+            .logo-text {
+                font-size: 1.2rem;
+            }
+            .logo-icon {
+                width: 35px;
+                height: 35px;
+            }
+            .logo-icon i {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================
+         NAVIGATION BAR
+         ============================================ -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-crow"></i>
+                </div>
+                <div class="logo-text">Shipper<span>Crow</span></div>
+            </a>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#products">Products</a>
+                <a href="#contact">Contact</a>
+                <a href="#about">About</a>
+            </div>
+            <button class="admin-btn" onclick="openLoginModal()">
+                <i class="fas fa-user-shield"></i> Admin
+            </button>
+        </div>
+    </nav>
+
+    <!-- ============================================
+         HERO SECTION
+         ============================================ -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Discover Premium Products</h1>
+            <p>Shop the best deals from top brands at Shipper Crow. Exclusive offers, premium quality, and unbeatable prices.</p>
+            <a href="#products" class="cta-button">Explore Collection →</a>
+        </div>
+    </section>
+
+    <!-- ============================================
+         PRODUCTS SECTION
+         ============================================ -->
+    <section class="products-section" id="products">
+        <h2 class="section-title">Featured Products</h2>
+        <div class="products-grid" id="productsGrid"></div>
+    </section>
+
+    <!-- ============================================
+         CONTACT SECTION
+         ============================================ -->
+    <section class="products-section" id="contact" style="background: var(--gray-light);">
+        <h2 class="section-title">Get in Touch</h2>
+        <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+            <div style="background: white; padding: 2rem; border-radius: 24px; box-shadow: var(--shadow-sm);">
+                <p style="margin: 0.5rem 0;"><i class="fas fa-envelope" style="color: var(--secondary);"></i> support@shippercrow.com</p>
+                <p style="margin: 0.5rem 0;"><i class="fas fa-phone" style="color: var(--secondary);"></i> +1 (888) 123-4567</p>
+                <p style="margin: 0.5rem 0;"><i class="fas fa-map-marker-alt" style="color: var(--secondary);"></i> 123 Commerce Avenue, New York, NY 10001</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         ABOUT US SECTION
+         ============================================ -->
+    <section class="products-section" id="about">
+        <h2 class="section-title">About Shipper Crow</h2>
+        <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+            <p style="color: var(--gray-dark); line-height: 1.8; font-size: 1.05rem;">Shipper Crow is your trusted affiliate marketplace, connecting you with premium products from Amazon, Shopify, and top global brands. We curate only the best deals, ensuring quality and value for every purchase. Join thousands of satisfied customers who shop smarter with Shipper Crow.</p>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SOCIAL LINKS SECTION
+         ============================================ -->
+    <section class="social-section">
+        <h2 class="section-title">Connect With Us</h2>
+        <div class="social-links">
+            <a href="#" class="social-icon amazon"><i class="fab fa-amazon"></i></a>
+            <a href="#" class="social-icon shopify"><i class="fab fa-shopify"></i></a>
+            <a href="#" class="social-icon tiktok"><i class="fab fa-tiktok"></i></a>
+            <a href="#" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon youtube"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="social-icon pinterest"><i class="fab fa-pinterest"></i></a>
+            <a href="#" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>Shipper Crow</h4>
+                <a href="#home">Home</a>
+                <a href="#products">Products</a>
+                <a href="#contact">Contact</a>
+                <a href="#about">About Us</a>
+            </div>
+            <div class="footer-column">
+                <h4>Support</h4>
+                <a href="#">Help Center</a>
+                <a href="#">Returns Policy</a>
+                <a href="#">Shipping Info</a>
+                <a href="#">FAQs</a>
+            </div>
+            <div class="footer-column">
+                <h4>Legal</h4>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Affiliate Disclosure</a>
+            </div>
+            <div class="footer-column">
+                <h4>Newsletter</h4>
+                <p style="color: var(--gray); margin-bottom: 1rem;">Get exclusive deals straight to your inbox.</p>
+                <div style="display: flex; gap: 0.5rem;">
+                    <input type="email" placeholder="Your email" style="padding: 0.6rem; border-radius: 8px; border: none; flex: 1;">
+                    <button style="background: var(--secondary); border: none; padding: 0.6rem 1rem; border-radius: 8px; color: white; cursor: pointer;">Subscribe</button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Shipper Crow. All rights reserved. | Premium Affiliate Marketplace</p>
+        </div>
+    </footer>
+
+    <!-- ============================================
+         ADMIN LOGIN MODAL
+         ============================================ -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <h3 style="margin-bottom: 1rem; color: var(--dark);">Admin Login</h3>
+            <form class="login-form" id="loginForm">
+                <input type="text" id="loginUser" placeholder="User ID" autocomplete="off">
+                <input type="password" id="loginPass" placeholder="Password">
+                <button type="submit">Login to Dashboard</button>
+            </form>
+            <p style="text-align: center; margin-top: 1rem; font-size: 0.8rem; color: var(--gray);">Demo: 242311031 / ZUBAER@31</p>
+        </div>
+    </div>
+
+    <!-- ============================================
+         ADMIN DASHBOARD
+         ============================================ -->
+    <div class="admin-dashboard" id="adminDashboard">
+        <div class="admin-header">
+            <h2><i class="fas fa-crown" style="color: var(--secondary);"></i> Shipper Crow Admin</h2>
+            <button class="close-admin" onclick="closeAdmin()"><i class="fas fa-times"></i> Close</button>
+        </div>
+        
+        <div class="product-form">
+            <h3 style="margin-bottom: 1rem;"><i class="fas fa-plus-circle"></i> Add New Product</h3>
+            <input type="text" id="productName" placeholder="Product Name">
+            <textarea id="productDesc" placeholder="Product Description" rows="2"></textarea>
+            <input type="text" id="productPrice" placeholder="Price (e.g., $49.99)">
+            <input type="text" id="productOldPrice" placeholder="Old Price (optional)">
+            <input type="text" id="productImage" placeholder="Image URL">
+            <input type="text" id="productAffiliateLink" placeholder="Affiliate Link (hidden from customers)">
+            <button class="admin-btn" onclick="addProduct()" style="background: var(--gradient-primary); width: 100%; margin-top: 0.5rem;">Add Product</button>
+        </div>
+        
+        <div class="product-list">
+            <h3 style="margin-bottom: 1rem;"><i class="fas fa-boxes"></i> Product Inventory</h3>
+            <table id="productTable">
+                <thead>
+                    <tr><th>Image</th><th>Name</th><th>Price</th><th>Actions</th></tr>
+                </thead>
+                <tbody id="productTableBody"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // ============================================
+        // PRODUCT DATA MANAGEMENT
+        // ============================================
+        let products = [];
+
+        function loadProducts() {
+            const stored = localStorage.getItem('shipperCrowProducts');
+            if (stored) {
+                products = JSON.parse(stored);
+            } else {
+                products = [
+                    { id: 1, name: "Premium Wireless Headphones", description: "Studio quality sound with noise cancellation", price: "$79.99", oldPrice: "$129.99", image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400", affiliateLink: "https://amazon.com/affiliate/headphones" },
+                    { id: 2, name: "Smart Watch Ultra", description: "Fitness tracker with heart rate monitor", price: "$149.99", oldPrice: "$199.99", image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400", affiliateLink: "https://amazon.com/affiliate/smartwatch" },
+                    { id: 3, name: "4K Action Camera", description: "Waterproof adventure camera", price: "$89.99", oldPrice: "$149.99", image: "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=400", affiliateLink: "https://amazon.com/affiliate/camera" },
+                    { id: 4, name: "Premium Leather Backpack", description: "Stylish and durable laptop backpack", price: "$59.99", oldPrice: "$89.99", image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400", affiliateLink: "https://amazon.com/affiliate/backpack" }
+                ];
+                saveProducts();
+            }
+            renderProducts();
+        }
+
+        function saveProducts() {
+            localStorage.setItem('shipperCrowProducts', JSON.stringify(products));
+        }
+
+        function renderProducts() {
+            const container = document.getElementById('productsGrid');
+            if (!container) return;
+            container.innerHTML = products.map(product => `
+                <div class="product-card" onclick="redirectToAffiliate(${product.id})">
+                    <div class="product-badge">Hot Deal</div>
+                    <img src="${product.image}" alt="${product.name}" class="product-image" onerror="this.src='https://placehold.co/400x250?text=Product'">
+                    <div class="product-info">
+                        <h3 class="product-title">${product.name}</h3>
+                        <div class="product-price">
+                            ${product.price}
+                            ${product.oldPrice ? `<span class="product-old-price">${product.oldPrice}</span>` : ''}
+                        </div>
+                        <button class="buy-btn"><i class="fas fa-shopping-cart"></i> Shop Now</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function redirectToAffiliate(productId) {
+            const product = products.find(p => p.id === productId);
+            if (product && product.affiliateLink) {
+                window.open(product.affiliateLink, '_blank');
+            } else {
+                alert('Affiliate link not available');
+            }
+        }
+
+        function renderAdminTable() {
+            const tbody = document.getElementById('productTableBody');
+            if (!tbody) return;
+            tbody.innerHTML = products.map(product => `
+                <tr>
+                    <td><img src="${product.image}" width="50" height="50" style="object-fit: cover; border-radius: 8px;"></td>
+                    <td style="max-width: 200px;">${product.name}</td>
+                    <td>${product.price}</td>
+                    <td><button class="delete-btn" onclick="deleteProduct(${product.id})">Delete</button></td>
+                </tr>
+            `).join('');
+        }
+
+        function addProduct() {
+            const name = document.getElementById('productName').value;
+            const desc = document.getElementById('productDesc').value;
+            const price = document.getElementById('productPrice').value;
+            const oldPrice = document.getElementById('productOldPrice').value;
+            const image = document.getElementById('productImage').value;
+            const affiliateLink = document.getElementById('productAffiliateLink').value;
+            
+            if (!name || !price || !image) {
+                alert('Please fill product name, price and image URL');
+                return;
+            }
+            
+            const newId = products.length > 0 ? Math.max(...products.map(p => p.id)) + 1 : 1;
+            products.push({ id: newId, name, description: desc, price, oldPrice, image, affiliateLink });
+            saveProducts();
+            renderProducts();
+            renderAdminTable();
+            
+            document.getElementById('productName').value = '';
+            document.getElementById('productDesc').value = '';
+            document.getElementById('productPrice').value = '';
+            document.getElementById('productOldPrice').value = '';
+            document.getElementById('productImage').value = '';
+            document.getElementById('productAffiliateLink').value = '';
+            alert('Product added successfully!');
+        }
+
+        function deleteProduct(id) {
+            if (confirm('Remove this product?')) {
+                products = products.filter(p => p.id !== id);
+                saveProducts();
+                renderProducts();
+                renderAdminTable();
+            }
+        }
+
+        // ============================================
+        // ADMIN AUTHENTICATION
+        // ============================================
+        function openLoginModal() { document.getElementById('loginModal').classList.add('active'); }
+        function closeLoginModal() { document.getElementById('loginModal').classList.remove('active'); }
+        function openAdmin() { document.getElementById('adminDashboard').classList.add('active'); renderAdminTable(); }
+        function closeAdmin() { document.getElementById('adminDashboard').classList.remove('active'); }
+
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const user = document.getElementById('loginUser').value;
+            const pass = document.getElementById('loginPass').value;
+            if (user === '242311031' && pass === 'ZUBAER@31') {
+                closeLoginModal();
+                openAdmin();
+                document.getElementById('loginUser').value = '';
+                document.getElementById('loginPass').value = '';
+            } else {
+                alert('Invalid credentials! Use: 242311031 / ZUBAER@31');
+            }
+        });
+
+        // ============================================
+        // SMOOTH SCROLLING & NAVBAR EFFECT
+        // ============================================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) navbar.classList.add('scrolled');
+            else navbar.classList.remove('scrolled');
+        });
+
+        // ============================================
+        // ANIMATION ON SCROLL
+        // ============================================
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-up');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.product-card, .section-title').forEach(el => observer.observe(el));
+
+        // ============================================
+        // INITIALIZE
+        // ============================================
+        loadProducts();
+    </script>
+</body>
+</html>
